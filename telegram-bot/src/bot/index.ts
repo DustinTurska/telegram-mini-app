@@ -2,6 +2,7 @@ import { parseMode } from '@grammyjs/parse-mode'
 import type { BotConfig, StorageAdapter } from 'grammy'
 import { Bot as TelegramBot } from 'grammy'
 import { startFeature } from './start.js'
+import { airdropFeature } from './airdrop.js'
 import type { Context, SessionData } from '#root/bot/context.js'
 import { createContextConstructor } from '#root/bot/context.js'
 import type { Logger } from '#root/logger.js'
@@ -47,6 +48,7 @@ export function createBot(token: string, dependencies: Dependencies, options: Op
 
   // Handlers
   bot.use(startFeature)
+  bot.use(airdropFeature)
 
   return bot
 }
